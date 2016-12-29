@@ -1,12 +1,26 @@
 ﻿<Window x:Class="WpfApp1.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Window to Wallpaper">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button Click="ButtonReflectOnClick" Content="デスクトップに反映する"></Button>
+            <Button Click="ButtonFinishReflectOnClick" Content="デスクトップへの反映を終了する"></Button>
+            <Button Click="ButtonExitApplicationOnClick" Content="アプリケーションを終了する"></Button>
+        </StackPanel>
+        <!-- <Image Source="sao0035.jpg" Grid.Row="1"></Image> -->
+        <cefSharp:ChromiumWebBrowser Grid.Row="1"
+                                     HorizontalAlignment="Stretch"
+                                     VerticalAlignment="Stretch"
+                                     Address="https://youtube.com"
+                                     RenderOptions.BitmapScalingMode="Linear" />
     </Grid>
 </Window>
